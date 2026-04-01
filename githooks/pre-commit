@@ -1,0 +1,2 @@
+#!/bin/sh
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(dirname "$0")/../scripts/check-staged-files.ps1"

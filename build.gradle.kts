@@ -10,10 +10,10 @@ plugins {
 
 tasks.register("smokeTest") {
     group = "verification"
-    description = "Runs cross-platform smoke checks (shared compile checks, desktop build, Android Kotlin compile)."
+    description = "Runs cross-platform smoke checks (shared unit tests plus desktop and Android Kotlin compile checks)."
     dependsOn(
-        ":shared:compileDebugUnitTestKotlinAndroid",
-        ":desktop-app:createDistributable",
+        ":shared:testDebugUnitTest",
+        ":desktop-app:compileKotlinDesktop",
         ":wear-app:compileDebugKotlin",
         ":phone-app:compileDebugKotlin"
     )
