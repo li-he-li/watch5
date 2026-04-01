@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HeartRateDao {
@@ -28,5 +29,7 @@ interface HeartRateDao {
 
     @Query("SELECT * FROM heart_rate_records ORDER BY timestamp ASC")
     suspend fun getAll(): List<HeartRateEntity>
-}
 
+    @Query("SELECT * FROM heart_rate_records ORDER BY timestamp ASC")
+    fun observeAll(): Flow<List<HeartRateEntity>>
+}
